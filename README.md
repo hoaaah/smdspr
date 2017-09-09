@@ -1,12 +1,11 @@
-SIMDA Perencanaan [codename SMDSPR] @satgas_simda bpkp
+Musrenbang Online [codename SMDSPR]
 ======================================================
 
-SIMDA Perencanaan (codename SMDSPR) adalah aplikasi yang dikembangkan oleh  [tim aplikasi SATGAS SIMDA BPKP](http://www.simda-online.com/) sebagai salah satu subsistem SIMDA Keuangan yang digunakan untuk Perencaan Pembangunan dan Anggaran.
+Musrenbang Online (codename SMDSPR) adalah aplikasi Perencaan Pembangunan dan Anggaran.
 
-SIMDA Perencaanaan terdiri dari sisi public - yang merupakan sisi frontend - dan sisi eksekutif - yang merupakan sisi backend- yang dibatasi oleh fase musrenbang RW-Desa/Kelurahan.
+Musrenbang Online terdiri dari sisi public - yang merupakan sisi frontend - dan sisi eksekutif - yang merupakan sisi backend- yang dibatasi oleh fase musrenbang RW-Desa/Kelurahan.
 
-Ini adalah fase pengembangan untuk development terbatas Tim Aplikasi SATGAS SIMDA BPKP. Silahkan lakukan pull-modified-commit-push melalui command yang dapat dilihat di [link ini] (http://www.belajararief.com/index.php/tulisan/tekno/172-git-cheatsheet) dan jangan lupa message setiap commit dilakukan.
-Gunakan aplikasi [gitkraket](https://www.gitkraken.com/) Untuk mempermudah penatausahaan git.
+Ini adalah fase WIPS.
 
 Sebelum Menginstall pastikan installasi wamp terlebih dahulu, lakukan clone menuju folder instalasi wamp anda (wamp jika anda menggunakan windows, untuk linux sama). Kemudian install [composer](https://getcomposer.org/).
 
