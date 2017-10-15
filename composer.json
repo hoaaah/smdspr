@@ -1,0 +1,55 @@
+{
+    "name": "hoaaah/smdspr",
+    "description": "Aplikasi Musrenbang Pemerintah Daerah",
+    "keywords": ["emusren", "musrenbang", "pemda", "project template"],
+    "homepage": "http://www.belajararief.com/",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "support": {
+        "issues": "https://github.com/hoaaah/smdspr/issues",
+        "wiki": "https://github.com/hoaaah/smdspr/wiki",
+        "source": "https://github.com/hoaaah/smdspr"
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": ">=2.0.6",
+        "yiisoft/yii2-bootstrap": "*",
+        "yiisoft/yii2-swiftmailer": "*",
+        "dmstr/yii2-adminlte-asset": "2.4.4",
+        "2amigos/yii2-date-picker-widget": "^1.0",
+        "2amigos/yii2-ckeditor-widget": "~1.0",
+        "ramzyvirani/yii2-lightbox": "*",
+        "itbz/fpdf": "dev-master",
+        "kartik-v/yii2-widgets": "*",
+        "kartik-v/yii2-editable": "*",        
+        "kartik-v/yii2-grid": "@dev",
+        "kartik-v/yii2-krajee-base": "dev-master",
+        "wbraganca/yii2-dynamicform": "dev-master",
+        "2amigos/yii2-chartjs-widget": "~2.0",
+        "kartik-v/yii2-tabs-x": "@dev",
+        "2amigos/yii2-google-maps-library": "*",
+        "kolyunya/yii2-map-input-widget": "~1.1",
+        "bizley/quill": "^2.0",
+        "2amigos/yii2-multi-select-widget": "*",
+        "kartik-v/yii2-detail-view": "@dev"         
+    },
+    "require-dev": {
+        "codeception/codeception": "*",
+        "yiisoft/yii2-debug": "*",
+        "yiisoft/yii2-gii": "*",
+        "yiisoft/yii2-faker": "*"
+    },
+    "config": {
+        "process-timeout": 1800,
+        "fxp-asset": {
+            "installer-paths": {
+                "npm-asset-library": "vendor/npm",
+                "bower-asset-library": "vendor/bower"
+            }
+        }
+    },
+    "scripts": {
+        "post-install-cmd": "php init --env=Development --overwrite=n"
+    }
+}
