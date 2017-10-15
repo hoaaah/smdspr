@@ -40,7 +40,7 @@ use dmstr\widgets\Alert;
     <div class="pull-right hidden-xs">
         <b>Version</b> 0.1 Alpha
     </div>
-    <strong>Copyright &copy; 2016 <a href="http://simda-online.com">SATGAS SIMDA BPKP</a>.</strong> Hak Cipta Dilindungi Undang-Undang.
+    <strong>Copyright &copy; 2016 <a href="http://belajararief.com">Untuk Indonesia</a>.</strong>
 </footer>
 
 <!-- Control Sidebar -->
