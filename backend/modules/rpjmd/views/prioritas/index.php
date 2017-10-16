@@ -15,10 +15,13 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="trpjmd-prioritas-index">
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
     <p>
-        <?= Html::a('Tambah Prioritas', ['create'], ['class' => 'btn btn-xs btn-success']) ?>
+        <?= Html::a('Tambah Prioritas', ['create'], [
+            'class' => 'btn btn-xs btn-success',
+            'data-toggle'=>"modal",
+            'data-target'=>"#myModal",
+            'data-title'=>"Tambah Prioritas Daerah",
+        ]) ?>
     </p>
 <?php Pjax::begin(['id' => 'prioritas-pjax', 'timeout' => 5000]); ?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -70,25 +73,57 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
 
             ], 
-            ['class' => 'yii\grid\SerialColumn'],
             'Kd_Prioritas',
             'Uraian',
-
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'kartik\grid\ActionColumn',
+                'template' => '{view} {update} {delete}',
+                'noWrap' => true,
+                'vAlign'=>'top',
+                'buttons' => [
+                        'update' => function ($url, $model) {
+                          return Html::a('<span class="glyphicon glyphicon-pencil"></span>', $url,
+                              [  
+                                 'title' => Yii::t('yii', 'hapus'),
+                                 'data-toggle'=>"modal",
+                                 'data-target'=>"#myModal",
+                                 'data-title'=> "Ubah Periode",                                 
+                                 // 'data-confirm' => "Yakin menghapus sasaran ini?",
+                                 // 'data-method' => 'POST',
+                                 // 'data-pjax' => 1
+                              ]);
+                        },                
+                        'view' => function($url, $model){
+                            return  Html::a('<i class="fa fa-eye"></i>', $url,
+                                [  
+                                 'title' => Yii::t('yii', 'hapus'),
+                                 'data-toggle'=>"modal",
+                                 'data-target'=>"#myModal",
+                                 'data-title'=> "View ",                                 
+                                 // 'data-confirm' => "Yakin menghapus sasaran ini?",
+                                 // 'data-method' => 'POST',
+                                 // 'data-pjax' => 1
+                              ]);
+                        }
+                ]
+            ],
         ],
     ]); ?>
 <?php Pjax::end(); ?></div>
-<?php 
-    Modal::begin([
-        'id' => 'myModal',
-        'header' => '<h4 class="modal-title">Lihat lebih...</h4>',
-    ]);
-     
-    echo '...';
-     
-    Modal::end();
+<?php
+Modal::begin([
+    'id' => 'myModal',
+    'header' => '<h4 class="modal-title">Lihat lebih...</h4>',
+    'options' => [
+        'tabindex' => false // important for Select2 to work properly
+    ], 
+    'size' => 'modal-lg',
+]);
+ 
+echo '...'; 
+Modal::end();
 
-$this->registerJs("
+$this->registerJs(<<<JS
     $('#myModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)
         var modal = $(this)
@@ -101,7 +136,8 @@ $this->registerJs("
                 modal.find('.modal-body').html(data)
             });
         })
-");    
+JS
+);
 ?>
 <?php 
     Modal::begin([

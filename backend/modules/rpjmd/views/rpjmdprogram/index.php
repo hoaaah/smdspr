@@ -185,6 +185,10 @@ $this->params['breadcrumbs'][] = $this->title;
     Modal::begin([
         'id' => 'myModal',
         'header' => '<h4 class="modal-title">Lihat lebih...</h4>',
+        'options' => [
+            'tabindex' => false // important for Select2 to work properly
+        ], 
+        'size' => 'modal-lg',
     ]);
      
     echo '...';
@@ -210,6 +214,10 @@ $this->registerJs("
     Modal::begin([
         'id' => 'myModalPelaksana',
         'header' => '<h4 class="modal-title">Lihat lebih...</h4>',
+        'options' => [
+            'tabindex' => false // important for Select2 to work properly
+        ], 
+        'size' => 'modal-lg',
     ]);
      
     echo '...';
@@ -235,6 +243,10 @@ $this->registerJs("
     Modal::begin([
         'id' => 'myModalIndikator',
         'header' => '<h4 class="modal-title">Lihat lebih...</h4>',
+        'options' => [
+            'tabindex' => false // important for Select2 to work properly
+        ], 
+        'size' => 'modal-lg',
     ]);
      
     echo '...';
@@ -260,6 +272,10 @@ $this->registerJs("
     Modal::begin([
         'id' => 'myModalubah',
         'header' => '<h4 class="modal-title">Lihat lebih...</h4>',
+        'options' => [
+            'tabindex' => false // important for Select2 to work properly
+        ], 
+        'size' => 'modal-lg',
     ]);
      
     echo '...';
@@ -285,6 +301,10 @@ $this->registerJs("
     Modal::begin([
         'id' => 'myModalPelaksanaubah',
         'header' => '<h4 class="modal-title">Lihat lebih...</h4>',
+        'options' => [
+            'tabindex' => false // important for Select2 to work properly
+        ], 
+        'size' => 'modal-lg',
     ]);
      
     echo '...';
@@ -310,6 +330,10 @@ $this->registerJs("
     Modal::begin([
         'id' => 'myModalIndikatorubah',
         'header' => '<h4 class="modal-title">Lihat lebih...</h4>',
+        'options' => [
+            'tabindex' => false // important for Select2 to work properly
+        ], 
+        'size' => 'modal-lg',
     ]);
      
     echo '...';
