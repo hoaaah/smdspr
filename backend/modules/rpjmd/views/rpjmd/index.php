@@ -264,35 +264,32 @@ $this->registerJs("
         })
 ");    
 ?>
-<?php 
-$this->registerJs('
-        function detail(obj,person_id){
-            /*
-                <table> 
-                    <tr>
-                        <td>
-                            <a> */
-            var a = obj; // get element anchor
-            var td = $(a).parent(); // get parent dari element anchor = td
-            var tr = $(td).parent(); // get element tr
-            var tdCount = $(tr).children().length; // get jumlah kolom pada tr
-            var table = $(tr).parent(); // get element table
-            $(table).children(".trDetail").remove(); // initialise, drop all of child with class trDetail
-             
-            var trDetail = document.createElement("tr"); // create element tr for detail
-            $(trDetail).attr("class","trDetail"); // add class trDetail for element tr 
-            var tdDetail = document.createElement("td"); // create element td for detail tr
-            $(tdDetail).attr("colspan",tdCount); // add element coolspan at td
-            $(tdDetail).html("<span class=\'fa fa-spinner fa-spin\'></span>"); // loader kaka..
-             
-            // get content via ajax
-            $.get("'.\yii\helpers\Url::to(['sasaran']).'&id="+person_id, function( data ) {
-              $(tdDetail).html( data );
-            }).fail(function() {
-                alert( "Terjadi Kesalahan Coba refresh halaman ini." );
-              });
-            $(trDetail).append(tdDetail); // add td to tr
-            $(tr).after(trDetail);  // add tr to table
-        }
-     
-', \yii\web\View::POS_HEAD) ?>
+<?php
+$this->registerJs(<<<JS
+    $("a[id^='detail-']").on("click", function(event){
+        event.preventDefault();
+        var objectButton = $(this);
+        var href = $(this).attr("href")
+        var td = objectButton.parent();
+        var tr = td.parent();
+        var tdCount = tr.children().length;
+        var table = tr.parent();
+        table.children(".trDetail").remove(); // drop all child of trdetail
+        var trDetail = document.createElement("tr");
+        $(trDetail).attr("class", "trDetail");
+        var tdDetail = document.createElement("td");
+        $(tdDetail).attr("colspan", tdCount);
+        $(tdDetail).html("<span class='fa fa-spinner fa-spin'></span>")
+        
+        // get content
+        $.get(href, function(data){
+            $(tdDetail).html(data);
+        }).fail(function(){
+            alert("Something was wrong.")
+        });
+        $(trDetail).append(tdDetail);
+        $(tr).after(trDetail);
+    })
+JS
+);
+?>

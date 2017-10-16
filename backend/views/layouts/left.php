@@ -101,8 +101,8 @@ function akses($menu){
                         'visible' => akses(401) || akses(402) || akses(403) || akses(404) || akses(405) || akses(406),
                         'items' => [
                             ['label' => 'Periode', 'icon' => 'circle-o', 'visible' => akses(401), 'url' => ['/rpjmd/periode'],],
-                            ['label' => 'Misi-Tujuan-Sasaran', 'icon' => 'circle-o', 'visible' => akses(403), 'url' => ['/rpjmd/rpjmd'],],
                             ['label' => 'Prioritas', 'icon' => 'circle-o', 'visible' => akses(402), 'url' => ['/rpjmd/prioritas'],],
+                            ['label' => 'Misi-Tujuan-Sasaran', 'icon' => 'circle-o', 'visible' => akses(403), 'url' => ['/rpjmd/rpjmd'],],
                             ['label' => 'Program RPJMD', 'icon' => 'circle-o', 'visible' => akses(404), 'url' => ['/rpjmd/rpjmdprogram'],],
                             ['label' => 'Pendapatan dan BTL', 'icon' => 'circle-o', 'visible' => akses(405), 'url' => ['/rpjmd/rpjmdpdtbtl'],],
                             ['label' => 'Proses Data RPJMD', 'icon' => 'circle-o', 'visible' => akses(406), 'url' => ['/rpjmd/proses'],],                

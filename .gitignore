@@ -58,3 +58,5 @@ common/web/unggah/sistem/
 common/web/unggah/usulan/
 
 smdspr_schema\.sql
+
+backend/web/assets/

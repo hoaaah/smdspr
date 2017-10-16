@@ -58,7 +58,11 @@ use yii\helpers\Url;
                 'format' => 'raw',
                 'width' => '10px',
                 'value' => function($model){
-                    return  Html::a('<button type="button" class="btn btn-xs btn-default">+++</button>', '#',['onclick'=>'detail(this,"'.$model->ID_Tahun.'.'.$model->No_Misi.'.'.$model->No_Tujuan.'");return false;']);
+                    // return  Html::a('<button type="button" class="btn btn-xs btn-default">+++</button>', '#',['onclick'=>'detail(this,"'.$model->ID_Tahun.'.'.$model->No_Misi.'.'.$model->No_Tujuan.'");return false;']);
+                    return  Html::a('+++', ['sasaran', 'id' => $model->ID_Tahun.'.'.$model->No_Misi.'.'.$model->No_Tujuan], [
+                        'class' => 'btn btn-xs btn-default',
+                        'id' => 'detail-'.$model->ID_Tahun.'.'.$model->No_Misi.'.'.$model->No_Tujuan,
+                    ]);
                 }
             ],    
             //['class' => 'kartik\grid\SerialColumn'],

@@ -1,8 +1,7 @@
 <?php
 use yii\helpers\Html;
 
-$connection = \Yii::$app->db;           
-$tahun = $connection->createCommand('SELECT tahun FROM t_rkpd_program GROUP BY tahun')->queryAll();
+$connection = \Yii::$app->db;
 IF(Yii::$app->session->get('tahun')){
     $thn = Yii::$app->session->get('tahun');
 }ELSE{
@@ -70,8 +69,18 @@ function cekjadwal($mulai, $selesai){
                         <span class="hidden-xs">Tahun Rencana: <?= Yii::$app->session->get('tahun') ? Yii::$app->session->get('tahun') : '<span class="label label-danger">Pilih !</span>' ?> </span>
                     </a>
                     <ul class="dropdown-menu">
-                        <?php foreach($tahun as $tahun): ?>
-                        <li><?= Html::a('<i class="fa fa-arrow-right text-blue"></i>'.$tahun['tahun'], ['/site/tahun', 'id' => $tahun['tahun']]) ?></li>
+                        <?php
+                        $periode = $connection->createCommand('SELECT Tahun1, Tahun2, Tahun3, Tahun4, Tahun5 FROM ta_periode')->queryAll();
+                        $tahun = null;
+                        foreach($periode as $periode){
+                            $tahun[] = $periode['Tahun1'];
+                            $tahun[] = $periode['Tahun2'];
+                            $tahun[] = $periode['Tahun3'];
+                            $tahun[] = $periode['Tahun4'];
+                            $tahun[] = $periode['Tahun5'];
+                        }
+                        foreach($tahun as $tahun): ?>
+                        <li><?= Html::a('<i class="fa fa-arrow-right text-blue"></i>'.$tahun, ['/site/tahun', 'id' => $tahun]) ?></li>
                         <?php endforeach;?>
                     </ul>
                 </li>                
